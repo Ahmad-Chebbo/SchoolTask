@@ -1,0 +1,31 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+
+}
+
+<div class="container">
+    <div class="text-center mb-4">
+        <h1 class="display-4">Welcome To Our School</h1>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card-counter success">
+                <a asp-area="" asp-controller="Subject" asp-action="Index" class="text-white">
+                    <i class="fa fa-database"></i>
+                    <span class="count-numbers">@ViewBag.subjectsCount</span>
+                    <span class="count-name">Subjects</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card-counter info">
+                <a asp-area="" asp-controller="Student" asp-action="Index" class="text-white">
+                    <i class="fa fa-users"></i>
+                    <span class="count-numbers"> @ViewBag.studentsCount </span>
+                    <span class="count-name">Students</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

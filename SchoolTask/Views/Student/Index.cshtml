@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Student>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h4>Students List</h4>
+<hr />
+<div class="text-center mb-4">
+    <a asp-action="AddOrEdit" class="btn btn-outline-success d-block">Add Student</a>
+</div>
+<div class="container">
+    <div class="row">
+    @if (Model != null)
+    {
+        @foreach (var student in Model)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    @if (@student.Gender == 'M')
+                    {
+                        <img src="https://www.kindpng.com/picc/m/142-1424731_female-graduate-icon-hd-png-download.png" height="300" class="card-img-top" alt="@student.FullName">
+                    }
+                    @if (@student.Gender == 'F')
+                    {
+                        <img src="https://t4.ftcdn.net/jpg/01/14/22/81/360_F_114228129_fmamTYzYFiITdltIM6sBvliFPrRdj7AF.jpg" height="300" class="card-img-top" alt="@student.FullName">
+                    }
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            @student.FullName
+                        </h5>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><span class="font-weight-bold">Age:</span> @student.Age</li>
+                            <li class="list-group-item"><span class="font-weight-bold">Gender:</span> @student.Gender</li>
+                            <li class="list-group-item"><span class="font-weight-bold">UID:</span> @student.UniversityId</li>
+                        </ul>
+                        <br>
+                        <div class="text-center">
+                            <a asp-action="AddOrEdit" asp-route-id="@student.Id" class="btn btn-warning"> <i class="fa fa-edit"></i> </a>
+                            <form asp-route-id="@student.Id" asp-action="Delete" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger d-inline" onclick="return confirm('Are you sure to delete this record?')">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    </div>
+</div>
