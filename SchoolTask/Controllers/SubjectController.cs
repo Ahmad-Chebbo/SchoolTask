@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolTask.Context;
 using SchoolTask.Models;
+using SchoolTask.Paging;
 
 namespace SchoolTask.Controllers
 {
@@ -17,17 +21,24 @@ namespace SchoolTask.Controllers
         }
 
         // GET: Subject
-        public async Task<IActionResult> Index()
+        public  IActionResult Index(int page = 1)
         {
-            // Display the index page with the students list from the database
-            return View(await _context.Subjects.ToListAsync());
+            Pagination pager = new Pagination(_context.Subjects.Count(), page, 6);
+            ViewBag.pageCount = pager.TotalPages;
+            ViewBag.currentPage =  pager.CurrentPage;
+            ViewBag.nextPage =  pager.NextPage;
+            ViewBag.previewsPage =  pager.PreviewsPage;
+            var subjects = _context.Subjects.Skip(pager.Skip).Take(pager.PageSize).OrderBy(e => e.Name).ToList();
+
+            return View(subjects); 
+            
         }
         
         // GET: Subject/Create
         public IActionResult Create()
         {
             // Go to the Create page to create new subject
-            return View(new Subject());
+            return View();
         }
         
         // POST: Subject/Create
@@ -54,15 +65,25 @@ namespace SchoolTask.Controllers
         }
         
         // GET: Subject/Detail/{id}
-        public IActionResult Detail(int id)
+        public IActionResult Detail(int? id)
         {
-            return View(_context.Subjects.Find(id));
+            Subject subject = _context.Subjects.Find(id);
+            if (subject == null)
+            {
+                return NotFound();
+            }
+            return View(subject);
         }
         
         // GET: Subject/Edit/{id}
         public IActionResult Edit(int id)
         {
-            return View(_context.Subjects.Find(id));
+            if (_context.Subjects.Find(id) != null)
+            { 
+                return View(_context.Subjects.Find(id));
+            }
+
+            return NotFound();
         }
         
         // POST: Subject/Edit{id}
@@ -84,22 +105,22 @@ namespace SchoolTask.Controllers
         [HttpPost]
         public async Task<IActionResult> Delete(int? id)
         {
-            // Find the subject in the database
-            var subject = await _context.Subjects.FindAsync(id);
             try
             {
+                // Find the subject in the database
+                var subject = await _context.Subjects.FindAsync(id);
                 // Use the ER context to remove the subject from the database
                 _context.Subjects.Remove(subject);
+                // Synchronize the changes in the database and the ER context
+                await _context.SaveChangesAsync();
+                // Return back
+                return RedirectToAction("Index");
             }
             catch (Exception e)
             {
                 Console.WriteLine(e);
                 return NotFound();
             }
-            // Synchronize the changes in the database and the ER context
-            await _context.SaveChangesAsync();
-            // Return back
-            return RedirectToAction("Index");
         }
     }
 }

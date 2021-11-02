@@ -70,6 +70,21 @@
           "lib/netstandard2.0/K4os.Hash.xxHash.dll": {}
         }
       },
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/5.0.11": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore.Relational": "5.0.11"
+        },
+        "compile": {
+          "lib/net5.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.AspNetCore.App"
+        ]
+      },
       "Microsoft.CSharp/4.7.0": {
         "type": "package",
         "compile": {
@@ -1666,6 +1681,21 @@
         "lib/netstandard1.6/K4os.Hash.xxHash.xml",
         "lib/netstandard2.0/K4os.Hash.xxHash.dll",
         "lib/netstandard2.0/K4os.Hash.xxHash.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore/5.0.11": {
+      "sha512": "o3OSSMdsUd7ekkWQcfWKQAJWv5wWsmK0HyhlZGlUyWyPz0de0B4Rq63c5r6Yd18qN76nAg7EjsIqV8lAIqDQBA==",
+      "type": "package",
+      "path": "microsoft.aspnetcore.diagnostics.entityframeworkcore/5.0.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "THIRD-PARTY-NOTICES.TXT",
+        "lib/net5.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll",
+        "lib/net5.0/Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.xml",
+        "microsoft.aspnetcore.diagnostics.entityframeworkcore.5.0.11.nupkg.sha512",
+        "microsoft.aspnetcore.diagnostics.entityframeworkcore.nuspec"
       ]
     },
     "Microsoft.CSharp/4.7.0": {
@@ -5753,6 +5783,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 5.0.11",
       "Microsoft.EntityFrameworkCore >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Sqlite >= 5.0.11",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.11",
@@ -5767,11 +5798,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Asp .Net\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
+      "projectUniqueName": "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
       "projectName": "SchoolTask",
-      "projectPath": "F:\\Asp .Net\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
+      "projectPath": "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
       "packagesPath": "C:\\Users\\ahmad\\.nuget\\packages\\",
-      "outputPath": "F:\\Asp .Net\\SchoolTask\\SchoolTask\\obj\\",
+      "outputPath": "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -5799,6 +5830,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[5.0.11, )"
+          },
           "Microsoft.EntityFrameworkCore": {
             "target": "Package",
             "version": "[5.0.11, )"

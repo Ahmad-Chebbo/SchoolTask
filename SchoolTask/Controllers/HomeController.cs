@@ -27,13 +27,8 @@ namespace SchoolTask.Controllers
         {
             var studentsCount = _studentContext.Students.Count();
             var subjectsCount = _subjectContext.Subjects.Count();
-            @ViewBag.studentsCount = studentsCount;
-            @ViewBag.subjectsCount = subjectsCount;
-            return View();
-        }
-
-        public IActionResult Privacy()
-        {
+            ViewBag.studentsCount = studentsCount;
+            ViewBag.subjectsCount = subjectsCount;
             return View();
         }
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "F:\\Asp .Net\\SchoolTask\\SchoolTask\\SchoolTask.csproj": {}
+    "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\SchoolTask.csproj": {}
   },
   "projects": {
-    "F:\\Asp .Net\\SchoolTask\\SchoolTask\\SchoolTask.csproj": {
+    "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\SchoolTask.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "F:\\Asp .Net\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
+        "projectUniqueName": "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
         "projectName": "SchoolTask",
-        "projectPath": "F:\\Asp .Net\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
+        "projectPath": "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
         "packagesPath": "C:\\Users\\ahmad\\.nuget\\packages\\",
-        "outputPath": "F:\\Asp .Net\\SchoolTask\\SchoolTask\\obj\\",
+        "outputPath": "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ahmad\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -39,6 +39,10 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.11, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[5.0.11, )"

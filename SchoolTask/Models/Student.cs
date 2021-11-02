@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -39,6 +40,8 @@ namespace SchoolTask.Models
         public DateTime CreatedAt { get; set;}  
         
         [DataType(DataType.Date)]
-        public DateTime? UpdatedAt { get; set;}  
+        public DateTime? UpdatedAt { get; set;}
+        
+        
     }
 }

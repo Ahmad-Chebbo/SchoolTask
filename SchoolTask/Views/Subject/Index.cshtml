@@ -3,6 +3,8 @@
 
 @{
     ViewData["Title"] = "Index";
+    var controller = "Subject";
+
 }
 
 <h4>Subjects List</h4>
@@ -32,9 +34,9 @@
                 @Html.DisplayFor(modelItem => subject.Name)
             </td>
             <td>
-                 <a asp-action="Detail" asp-route-id="@subject.Id" class="btn btn-primary">
-                     <i class="fa fa-eye"></i>
-                 </a>
+                <a asp-action="Detail" asp-route-id="@subject.Id" class="btn btn-primary">
+                    <i class="fa fa-eye"></i>
+                </a>
                 <a asp-action="Edit" asp-route-id="@subject.Id" class="btn btn-warning">
                     <i class="fa fa-edit"></i>
                 </a>
@@ -48,4 +50,8 @@
     }
     </tbody>
 </table>
+
+<!-- Pagination -->
+<partial name="_Pagination" model="controller"  />
+
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+JQp2p8x2qMkX9caFjAOEHYq7+QGJEqZlMdh2ybla6wtpnYqUeZajqrmrY7gVl3gVuXtWAG7S0ciKNOuvUylOA==",
+  "dgSpecHash": "j9zK+RIYzC1RSZWVtrXp6v+hUQfJUlHV5GPGTQsoEZxH/+yqxnEviOy0WSbNZeJ5JDQWAt03tHS8srwF3xQpHw==",
   "success": true,
-  "projectFilePath": "F:\\Asp .Net\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
+  "projectFilePath": "F:\\Asp .Net\\Testing\\SchoolTask\\SchoolTask\\SchoolTask.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ahmad\\.nuget\\packages\\bouncycastle.netcore\\1.8.5\\bouncycastle.netcore.1.8.5.nupkg.sha512",
     "C:\\Users\\ahmad\\.nuget\\packages\\google.protobuf\\3.14.0\\google.protobuf.3.14.0.nupkg.sha512",
@@ -10,6 +10,7 @@
     "C:\\Users\\ahmad\\.nuget\\packages\\k4os.compression.lz4\\1.2.6\\k4os.compression.lz4.1.2.6.nupkg.sha512",
     "C:\\Users\\ahmad\\.nuget\\packages\\k4os.compression.lz4.streams\\1.2.6\\k4os.compression.lz4.streams.1.2.6.nupkg.sha512",
     "C:\\Users\\ahmad\\.nuget\\packages\\k4os.hash.xxhash\\1.0.6\\k4os.hash.xxhash.1.0.6.nupkg.sha512",
+    "C:\\Users\\ahmad\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\5.0.11\\microsoft.aspnetcore.diagnostics.entityframeworkcore.5.0.11.nupkg.sha512",
     "C:\\Users\\ahmad\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\ahmad\\.nuget\\packages\\microsoft.data.sqlite.core\\5.0.11\\microsoft.data.sqlite.core.5.0.11.nupkg.sha512",
     "C:\\Users\\ahmad\\.nuget\\packages\\microsoft.dotnet.platformabstractions\\3.1.6\\microsoft.dotnet.platformabstractions.3.1.6.nupkg.sha512",

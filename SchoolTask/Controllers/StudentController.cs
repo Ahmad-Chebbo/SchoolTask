@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SchoolTask.Context;
 using SchoolTask.Models;
+using SchoolTask.Paging;
 
 namespace SchoolTask.Controllers
 {
@@ -18,11 +20,30 @@ namespace SchoolTask.Controllers
             _context = context;
         }
 
-        // GET: Student
-        public async Task<IActionResult> Index()
+        // GET: Students
+        public IActionResult Index(int page = 1)
         {
-            // Display the index page with the students list from the database
-            return View(await _context.Students.ToListAsync());
+            // I left those comments to show the process of creating pagination before moving them to a separate
+            // class and creating a partial view page with dynamic controller name
+            
+            // var limit = 3;
+            // var skip = (page - 1) * limit; 
+            // decimal total = _context.Students.Count();
+            // var pageCount = Math.Ceiling((total / limit));
+            // @ViewBag.pageCount = pageCount;
+            // @ViewBag.currentPage =  Convert.ToInt32(page);
+            // pageSize => limit
+            // page => currentPage
+            // skip => (currentPage - 1) * PageSize
+            
+            Pagination pager = new Pagination(_context.Students.Count(), page, 3);
+            ViewBag.pageCount = pager.TotalPages;
+            ViewBag.currentPage =  pager.CurrentPage;
+            ViewBag.nextPage =  pager.NextPage;
+            ViewBag.previewsPage =  pager.PreviewsPage;
+            var students = _context.Students.Skip(pager.Skip).Take(pager.PageSize).OrderBy(e => e.FullName).ToList();
+            
+            return View(students);
         }
 
         // GET: Student/AddOrEdit
@@ -40,21 +61,18 @@ namespace SchoolTask.Controllers
             try
             {
                 // Validated the data
-                if (ModelState.IsValid)
-                {
-                    // Check if the student id exist or not (checking if it's create ot edit action)
-                    if (student.Id == 0)
-                        // Create new student with the given parameters  body
-                        _context.Add(student);
-                    else
-                        // Update existing students
-                        _context.Update(student);
-                    // Synchronize the changes in the database and the ER context
-                    await _context.SaveChangesAsync();
-                    // Return back
-                    return RedirectToAction("Index");
-                }
-                return View(student);
+                if (!ModelState.IsValid) return View(student);
+                // Check if the student id exist or not (checking if it's create ot edit action)
+                if (student.Id == 0)
+                    // Create new student with the given parameters  body
+                    _context.Add(student);
+                else
+                    // Update existing students
+                    _context.Update(student);
+                // Synchronize the changes in the database and the ER context
+                await _context.SaveChangesAsync();
+                // Return back
+                return RedirectToAction("Index");
             }
             catch (Exception e)
             {

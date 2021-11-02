@@ -1,19 +1,20 @@
-﻿@page
-@model SchoolTask.Views.Shared._Pagination
-
-@{
-    Layout = null;
-}
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-<div>
-    
+﻿<div class="row">
+    <nav aria-label="Page navigation example">
+        <ul class="pagination text-center">
+            @if (ViewBag.previewsPage > 0)
+            {
+                <li class="page-item"><a class="page-link" asp-area="" asp-controller="@Model" asp-action="Index" asp-route-page="@ViewBag.previewsPage">Previous</a></li>
+            }
+            @for (var i = 1; i <= ViewBag.pageCount; i++)
+            {
+                <li class="page-item @(ViewBag.currentPage == @i ? "active" : "")">
+                    <a class="page-link" asp-area="" asp-controller="@Model" asp-action="Index" asp-route-page="@i">@i</a>
+                </li>
+            }
+            @if (ViewBag.nextPage <= ViewBag.pageCount)
+            {
+                <li class="page-item"><a class="page-link" asp-area="" asp-controller="@Model" asp-action="Index" asp-route-page="@ViewBag.nextPage">Next</a></li>
+            }
+        </ul>
+    </nav>
 </div>
-</body>
-</html>
