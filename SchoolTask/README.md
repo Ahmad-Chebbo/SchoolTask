@@ -44,3 +44,10 @@ To edit the database credentials:
 - MySql.Data 8.0.27
 - MySql.EntityFrameworkCore 5.0.8
 
+### Paging
+
+- Created Paging folder and new Pagination class.
+- Create an instance of pagination inside the index methods in the student and subjcet controller that took as argument the total count of items, pages count and the limit of items in each page.
+- Create a _Pagination partial view that pass the controller name as model.
+- Use _Pagination partial class inside each Index page (or whenever we need it) to show the pagination.
+
